@@ -1,0 +1,274 @@
+{
+  "version": "1.0.0",
+  "environment": {
+    "name": "styleTest",
+    "path": [
+      "https://www.thingjs.com/static/images/reflect1.jpg",
+      "https://www.thingjs.com/static/images/reflect1.jpg",
+      "https://www.thingjs.com/static/images/reflect1.jpg",
+      "https://www.thingjs.com/static/images/reflect1.jpg",
+      "https://www.thingjs.com/static/images/reflect1.jpg",
+      "https://www.thingjs.com/static/images/reflect1.jpg"
+    ]
+  },
+  "class": {
+    "Thing": {
+      "enable": true,
+      "color": { "enable": false, "value": "#ffffff" },
+      "transparent": true,
+      "opacity": 0.7,
+      "useEnvMapType": "none",
+      "useColorMap": false,
+      "colorMapping": {
+        "0.97": "#000000",
+        "0.33": "#2b1b4f",
+        "0.15": "#0b29c4",
+        "0.84": "#000000",
+        "0.73": "#00153f"
+      },
+      "useScrollTex": false,
+      "scrollTex": "https://www.thingjs.com/static/images/scroll.jpg",
+      "scrollColor": [1, 1, 1],
+      "scrollSpeed": 0.003,
+      "scrollOffset": 0,
+      "edge": {
+        "enable": true,
+        "color": [0, 0, 0],
+        "opacity": 1,
+        "glow": true
+      },
+      "wireframe": false,
+      "sideType": "Double",
+      "colorImage": { "enable": false, "color": "#ff00ff" },
+      "reflection": {
+        "enable": true,
+        "useType": "assignment",
+        "metalness": 0.32,
+        "roughness": 0.1
+      },
+      "effect": {
+        "glow": 0.1,
+        "innerGlow": false,
+        "tailing": false,
+        "radial": false,
+        "ghosting": false,
+        "lineBloom": false
+      }
+    },
+    "Building": {
+      "enable": true,
+      "color": { "enable": false, "value": "#ffffff" },
+      "sideType": "Double",
+      "transparent": true,
+      "opacity": 0.87,
+      "useEnvMapType": "none",
+      "useScrollTex": false,
+      "scrollTex": "https://www.thingjs.com/static/images/scroll.jpg",
+      "scrollColor": [1, 1, 1],
+      "scrollSpeed": 0.003,
+      "scrollOffset": 0,
+      "edge": {
+        "enable": true,
+        "color": [0, 0, 0],
+        "opacity": 0.87,
+        "glow": false
+      },
+      "wireframe": false,
+      "colorImage": { "enable": false, "color": "#ffffff" },
+      "useColorMap": true,
+      "colorMapping": {
+        "0.97": "#000000",
+        "0.33": "#2b1b4f",
+        "0.15": "#0b29c4",
+        "0.84": "#000000",
+        "0.73": "#00153f"
+      },
+      "reflection": {
+        "enable": true,
+        "useType": "assignment",
+        "metalness": 0.32,
+        "roughness": 0.1
+      },
+      "effect": {
+        "glow": 0.1,
+        "innerGlow": false,
+        "tailing": false,
+        "radial": false,
+        "ghosting": false,
+        "lineBloom": false
+      }
+    },
+    "Facade": {
+      "enable": true,
+      "color": { "enable": false, "value": "#ffffff" },
+      "transparent": true,
+      "opacity": 0.99,
+      "useEnvMapType": "styleFiction",
+      "useScrollTex": true,
+      "scrollTex": "https://www.thingjs.com/static/images/scroll.jpg",
+      "scrollColor": [0, 255, 255],
+      "scrollSpeed": 0.003,
+      "scrollOffset": 0,
+      "edge": {
+        "enable": true,
+        "color": [0, 0, 0],
+        "opacity": 1,
+        "glow": true
+      },
+      "wireframe": false,
+      "sideType": "Double",
+      "colorImage": { "enable": false, "color": "#ff00ff" },
+      "useColorMap": false,
+      "colorMapping": {
+        "0.97": "#000000",
+        "0.33": "#2b1b4f",
+        "0.15": "#0b29c4",
+        "0.84": "#000000",
+        "0.73": "#00153f"
+      },
+      "reflection": {
+        "enable": true,
+        "useType": "multiply",
+        "metalness": 0.32,
+        "roughness": 0.1
+      },
+      "effect": {
+        "glow": 0.1,
+        "innerGlow": false,
+        "tailing": false,
+        "radial": false,
+        "ghosting": false,
+        "lineBloom": false
+      }
+    },
+    "Ground": {
+      "enable": true,
+      "color": { "enable": false, "value": "#ffffff" },
+      "sideType": "Double",
+      "transparent": true,
+      "opacity": 0.87,
+      "useEnvMapType": "none",
+      "reflection": {
+        "enable": true,
+        "useType": "assignment",
+        "metalness": 0.5,
+        "roughness": 0.5
+      },
+      "wireframe": false,
+      "useScrollTex": false,
+      "scrollTex": "https://www.thingjs.com/static/images/scroll.jpg",
+      "scrollColor": [1, 1, 1],
+      "scrollSpeed": 0.003,
+      "scrollOffset": 0,
+      "edge": {
+        "enable": true,
+        "color": [0, 0, 1],
+        "opacity": 1,
+        "glow": true
+      },
+      "colorImage": { "enable": false, "color": "#ff0000" },
+      "useColorMap": true,
+      "colorMapping": {
+        "0.97": "#000000",
+        "0.33": "#2b1b4f",
+        "0.15": "#0b29c4",
+        "0.84": "#000000",
+        "0.73": "#00153f"
+      },
+      "effect": {
+        "glow": 0.1,
+        "innerGlow": false,
+        "tailing": false,
+        "radial": false,
+        "ghosting": false,
+        "lineBloom": false
+      }
+    },
+    "Room": {
+      "enable": true,
+      "color": { "enable": false, "value": "#ffffff" },
+      "sideType": "Double",
+      "transparent": true,
+      "opacity": 0.87,
+      "useEnvMapType": "none",
+      "reflection": {
+        "enable": true,
+        "useType": "assignment",
+        "metalness": 0.5,
+        "roughness": 0.5
+      },
+      "wireframe": false,
+      "useScrollTex": false,
+      "scrollTex": "https://www.thingjs.com/static/images/scroll.jpg",
+      "scrollColor": [1, 1, 1],
+      "scrollSpeed": 0.003,
+      "scrollOffset": 0,
+      "edge": {
+        "enable": true,
+        "color": [0, 0, 1],
+        "opacity": 1,
+        "glow": true
+      },
+      "colorImage": { "enable": false, "color": "#ff0000" },
+      "useColorMap": true,
+      "colorMapping": {
+        "0.97": "#000000",
+        "0.33": "#2b1b4f",
+        "0.15": "#0b29c4",
+        "0.84": "#000000",
+        "0.73": "#00153f"
+      },
+      "effect": {
+        "glow": 0.1,
+        "innerGlow": false,
+        "tailing": false,
+        "radial": false,
+        "ghosting": false,
+        "lineBloom": false
+      }
+    },
+    "Dec": {
+      "enable": true,
+      "color": { "enable": false, "value": "#ffffff" },
+      "sideType": "Double",
+      "transparent": true,
+      "opacity": 0.87,
+      "useEnvMapType": "none",
+      "reflection": {
+        "enable": true,
+        "useType": "assignment",
+        "metalness": 0.5,
+        "roughness": 0.5
+      },
+      "wireframe": false,
+      "useScrollTex": false,
+      "scrollTex": "https://www.thingjs.com/static/images/scroll.jpg",
+      "scrollColor": [255, 255, 255],
+      "scrollSpeed": 0.003,
+      "scrollOffset": 0,
+      "edge": {
+        "enable": true,
+        "color": [0, 0, 1],
+        "opacity": 1,
+        "glow": true
+      },
+      "colorImage": { "enable": false, "color": "#ff0000" },
+      "useColorMap": true,
+      "colorMapping": {
+        "0.97": "#2e6faa",
+        "0.33": "#160b2d",
+        "0.15": "#2f4087",
+        "0.84": "#213c82",
+        "0.73": "#061126"
+      },
+      "effect": {
+        "glow": 0.1,
+        "innerGlow": false,
+        "tailing": false,
+        "radial": false,
+        "ghosting": false,
+        "lineBloom": false
+      }
+    }
+  }
+}

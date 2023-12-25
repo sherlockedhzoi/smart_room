@@ -1,0 +1,17 @@
+{
+    "version": "1.0.0",
+    "includes": [
+        {
+            "url": "./rendersetting.json",
+            "type": "rendersettings"
+        },
+        {
+            "url": "./decoration.json",
+            "type": "decoration"
+        },
+        {
+            "url": "./styles.json",
+            "type": "styles"
+        }
+    ]
+}

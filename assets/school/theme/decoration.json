@@ -1,0 +1,212 @@
+[
+    {
+        "name": "",
+        "type": "BoundaryLayer",
+        "position": [
+            -57.98162638394517,
+            4.999999999999993,
+            -9.349779578255756
+        ],
+        "angles": [
+            0,
+            0,
+            0
+        ],
+        "scale": [
+            1,
+            1,
+            1
+        ],
+        "style": {
+            "color": null,
+            "opacity": 1,
+            "renderOrder" : 0,
+            "image": "uv_grid_opengl.jpg",
+            "offsetTweenX": true,
+            "speedX": -0.031,
+            "offsetTweenY": false,
+            "speedY": 0,
+            "offset": [
+                -32.859999999999474,
+                0
+            ],
+            "rotation": 0,
+            "repeat": [
+                1,
+                1
+            ],
+            "ImageCenter": [
+                0,
+                0
+            ],
+            "wireframe": false,
+            "sideType": "Double"
+        },
+        "jsonData": {
+            "extrudeHeight": 10,
+            "localData": [
+                [
+                    [
+                        [
+                            -11.691163018923874,
+                            -5,
+                            -16.774723378784792,
+                            0,
+                            1,
+                            0
+                        ],
+                        [
+                            11.69116301892388,
+                            -5,
+                            -16.774723378784792,
+                            0,
+                            1,
+                            0
+                        ],
+                        [
+                            11.69116301892388,
+                            -5,
+                            16.774723378784792,
+                            0,
+                            1,
+                            0
+                        ],
+                        [
+                            -11.691163018923874,
+                            -5,
+                            16.774723378784792,
+                            0,
+                            1,
+                            0
+                        ],
+                        [
+                            -11.691163018923874,
+                            -5,
+                            -16.774723378784792,
+                            0,
+                            1,
+                            0
+                        ]
+                    ]
+                ]
+            ]
+        },
+        "UvType": "Tile"
+    },
+    {
+        "name": "",
+        "type": "FatLine",
+        "position": [
+            -22.465776898232377,
+            0,
+            4.53209331876775
+        ],
+        "angles": [
+            0,
+            0,
+            0
+        ],
+        "scale": [
+            1,
+            1,
+            1
+        ],
+        "style": {
+            "color": [
+                0,
+                1,
+                0
+            ],
+            "opacity": 1,
+            "renderOrder" : 0,
+            "image": null,
+            "offsetTweenX": false,
+            "speedX": 0,
+            "offsetTweenY": false,
+            "speedY": 0,
+            "offset": null,
+            "rotation": null,
+            "repeat": null,
+            "ImageCenter": null,
+            "wireframe": false,
+            "sideType": null
+        },
+        "selfPoints": [
+            [
+                -6.136994913634382,
+                0,
+                -14.611284982607003
+            ],
+            [
+                6.136994913634378,
+                0,
+                -14.611284982607003
+            ],
+            [
+                6.136994913634378,
+                0,
+                14.611284982607003
+            ],
+            [
+                -6.136994913634382,
+                0,
+                14.611284982607003
+            ],
+            [
+                -6.136994913634382,
+                0,
+                -14.611284982607003
+            ]
+        ],
+        "width": 5,
+        "cornerThreshold": 0.4
+    },
+    {
+        "name": "box_0",
+        "type": "box",
+        "position": [
+            0,
+            1,
+            0
+        ],
+        "angles": [
+            0,
+            0,
+            0
+        ],
+        "scale": [
+            1,
+            1,
+            1
+        ],
+        "style": {
+            "color": [
+                1,
+                1,
+                1
+            ],
+            "opacity": 1,
+            "renderOrder" : 0,
+            "image": "diffuse.jpg",
+            "offsetTweenX": true,
+            "speedX": -0.009000000000000001,
+            "offsetTweenY": true,
+            "speedY": -0.031,
+            "offset": [
+                -5.7480000000000615,
+                -4.154000000000005
+            ],
+            "rotation": 0,
+            "repeat": [
+                1,
+                1
+            ],
+            "ImageCenter": [
+                0,
+                0
+            ],
+            "wireframe": false,
+            "sideType": null
+        }
+    }
+]

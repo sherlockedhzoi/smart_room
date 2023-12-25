@@ -1,0 +1,1 @@
+{"name":"SceneBundle","type":"scene","version":"2.0.0","author":"ThingJS team","main":"bundleScene.json","description":"The Scene of ThingJS System","dependencies":{"thingjs":"1.2.20"}}

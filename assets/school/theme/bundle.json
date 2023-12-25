@@ -1,0 +1,11 @@
+{
+    "name": "ThemeBundle",
+    "type": "theme",
+    "version": "1.0.0",
+    "author": "ThingJS team",
+    "main": "theme.json",
+    "description": "The Scene of ThingJS System",
+    "dependencies": {
+      "thingjs": "1.2.20"
+    }
+}

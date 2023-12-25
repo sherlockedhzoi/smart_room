@@ -1,0 +1,360 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+/* 页面按钮 */
+.alarm-button {
+  position: absolute;
+  top: 0px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  justify-items: center;
+}
+
+.push-alarm-button,
+.cancel-alarm-button {
+  color: rgb(39, 223, 223);
+  background-color: rgb(26, 214, 157, 0.2);
+  border-radius: 4px;
+  padding: 10px;
+  cursor: pointer;
+  margin: 10px;
+}
+
+/* 建筑标记 */
+.build-marker {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.bubble img {
+  width: 20px;
+  height: 14px;
+}
+
+/* 设备信息面板 */
+.info-panel {
+  position: relative;
+}
+
+.panel-wrap-tt {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.panel-wrap {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+/* 
+.panel-wrap .top-icon {
+  width: 32px;
+  height: 27px;
+}
+
+.panel-wrap .top-icon img {
+  width: 100%;
+  height: 100%;
+} */
+
+.panel-wrap .content {
+  position: relative;
+  width: 197px;
+  padding: 21px 8px 0px 9px;
+  background: url('https://static.3dmomoda.com/textures/220407141ewfydhz11xsja8xjdhurqkd.png') 100% 100% no-repeat;
+  background-size: cover;
+}
+.panel-wrap-tt .content {
+  display: none;
+  position: relative;
+  width: 197px;
+  padding: 21px 8px 0px 9px;
+  background: url('https://static.3dmomoda.com/textures/220407141ewfydhz11xsja8xjdhurqkd.png') 100% 100% no-repeat;
+  background-size: cover;
+}
+
+.panel-wrap .content .close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 10px;
+  height: 11px;
+  background: url('https://static.3dmomoda.com/textures/22040714nwiijwprjwfgg7mc5dod4oax.png') no-repeat 100% 100%;
+  background-size: contain;
+  cursor: pointer;
+}
+
+/* 基础信息 */
+.panel-wrap .content .info {
+  margin-bottom: 8px;
+}
+
+.panel-wrap .content .video-info {
+  height: 170px;
+  transition: height 300ms;
+  overflow: hidden;
+}
+
+.panel-wrap .title {
+  width: 180px;
+  height: 19px;
+  padding: 0 0 4px 9px;
+  background: url('https://static.3dmomoda.com/textures/22040714vpd75x9y9lotr8wyf530loj1.png') 100% 100% no-repeat;
+  background-size: cover;
+  font-size: 13px;
+  font-family: SourceHanSansCN-Medium, SourceHanSansCN;
+  font-weight: 500;
+  color: rgba(227, 250, 255, 0.9);
+  line-height: 20px;
+}
+
+.panel-wrap .detail .item {
+  display: flex;
+  align-items: center;
+  height: 26px;
+}
+
+.panel-wrap .detail .item .info-panel {
+  transform: scale(0.8);
+}
+
+.panel-wrap .detail .video-iframe {
+  width: 100%;
+  padding: 10px 0;
+  height: 113px;
+}
+
+.panel-wrap .detail .item span:first-child {
+  font-size: 12px;
+  font-family: SourceHanSansCN-Regular, SourceHanSansCN;
+  font-weight: 400;
+  color: rgba(243, 253, 255, 0.79);
+  line-height: 20px;
+}
+
+.panel-wrap .detail .item span:last-child {
+  font-size: 12px;
+  font-family: DIN-Medium, DIN;
+  font-weight: 500;
+  color: #2fdbff;
+  line-height: 20px;
+}
+
+/* 房间标记 */
+.room-image {
+  width: 100px;
+  height: 35px;
+}
+
+.room-image img {
+  width: 100%;
+  height: 100%;
+}
+
+.room-marker-wrap {
+  background-color: rgba(39, 74, 93, 0.51);
+  border-radius: 14px;
+  border: 4px solid rgba(47, 219, 255, 0.74);
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.room-marker-wrap::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 100%;
+  transform: translate(-50%);
+  border: 8px solid transparent;
+  border-top-color: rgba(47, 219, 255, 0.74);
+}
+
+.room-marker {
+  color: #e3f0e7;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 22px;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.room-marker-active {
+  border: 4px solid rgba(238, 117, 54, 1);
+  background-color: rgba(238, 117, 54, 0.45);
+}
+
+.room-marker-active::after {
+  border-top-color: rgba(238, 117, 54, 1);
+}
+
+.room-info {
+  display: flex;
+}
+
+.room-info>div {
+  margin: 3px 10px;
+}
+
+.room-operate {
+  display: flex;
+  justify-content: center;
+}
+
+/* switch操作按钮 */
+.operate {
+  position: relative;
+  width: 40px;
+  height: 20px;
+  background-color: rgba(220, 223, 230, 0.85);
+  border: 2px solid transparent;
+  border-radius: 20px;
+  display: flex;
+  cursor: pointer;
+  transition: border 300ms, background-color 300ms;
+}
+
+.circle {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: white;
+  transition: left 300ms;
+}
+
+.circle-open-device {
+  left: 20px;
+}
+
+.operate-open-device {
+  border: 2px solid rgb(19, 206, 102);
+  background-color: rgb(19, 206, 102);
+}
+
+
+
+.person-marker {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 83px;
+  height: 43px;
+  padding-left: 40px;
+  color: #fff;
+  background: url('../images/visitor.png') no-repeat 100% 100%;
+  cursor: pointer;
+}
+
+.person-marker span {
+  margin-left: 43px;
+}
+
+
+/* 课程表 */
+.panel-wrap-full-screen {
+  position: absolute; /* 固定定位 */
+  top: 0; /* 顶部对齐 */
+  left: 0; /* 左侧对齐 */
+  /* width: 100%; 
+  height: 100%;  */
+  background-color: rgba(255, 255, 255, 0.9); /* 背景色，可适当调整 */
+  overflow-y: auto; /* 如果内容过长，允许垂直滚动 */
+  z-index: 1000; /* 确保面板在最顶层 */
+  /* display: flex;  */
+  /* flex-direction: column; 
+  align-items: center; 
+  justify-content: center;  */
+}
+
+.panel-wrap-full-screen .content {
+  position: fixed;
+  top: 10%;
+  left: 10%;
+  width: 80%;
+  height: 80%;
+  padding: 21px 8px 0px 9px;
+  overflow-y: auto; /* 如果内容过长，允许垂直滚动 */
+  background: url('https://jiahaonb.cn-sy1.rains3.com//music/b1a8f9157b8b962ab3e913c24ad71120.jpg') 100% 100% no-repeat;
+  background-size: cover;
+}
+
+.panel-wrap-full-screen .top-icon img {
+  position: fixed;
+  top: 2%;
+  left: 50%;
+  /* width: 80%;
+  height: 80%; */
+}
+
+.panel-wrap-full-screen .content .close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 10px;
+  height: 11px;
+  background: url('https://static.3dmomoda.com/textures/22040714nwiijwprjwfgg7mc5dod4oax.png') no-repeat 100% 100%;
+  background-size: contain;
+  cursor: pointer;
+}
+
+/* 基础信息 */
+.panel-wrap-full-screen .content .info {
+  margin-bottom: 8px;
+}
+
+.panel-wrap-full-screen .content .video-info {
+  height: 170px;
+  transition: height 300ms;
+  overflow: hidden;
+}
+
+
+
+.course-table {
+  width: 100%;
+  height: 100%;
+  border-collapse: collapse;
+}
+
+.course-table th, .course-table td {
+  border: 2px solid #131212;
+  padding: 20px;
+  text-align: center;
+}
+
+.course-entry {
+  margin-bottom: 10px;
+}
+
+.button-group img {
+  position: fixed;
+  top: 8%;
+  left: 91%;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  /* bottom: 200px; */
+  /* right: 20px; */
+}
+
+
+
+
+
+/* .name {
+  margin-left: 10px;
+} */
