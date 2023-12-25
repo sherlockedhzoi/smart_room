@@ -1,7 +1,7 @@
 const devices=[{
 		url: './assets/models/doors/doors.gltf',
-		name: 'door01',
-		id: 'door01',
+		name: 'door0',
+		id: 'door0',
 		userData: {
 			type: 'door',
 		},
@@ -14,8 +14,8 @@ const devices=[{
 	},
 	{
 		url: './assets/models/doors/doors.gltf',
-		name: 'door02',
-		id: 'door02',
+		name: 'door1',
+		id: 'door1',
 		userData: {
 			type: 'door',
 		},
@@ -28,8 +28,8 @@ const devices=[{
 	//新加门
 	{
 		url: './assets/models/doors/doors.gltf',
-		name: 'door03',
-		id: 'door03',
+		name: 'door2',
+		id: 'door2',
 		userData: {
 			type: 'door',
 		},
@@ -41,8 +41,8 @@ const devices=[{
 	},
 	{
 		url: './assets/models/doors/doors.gltf',
-		name: 'door04',
-		id: 'door04',
+		name: 'door3',
+		id: 'door3',
 		userData: {
 			type: 'door',
 		},
@@ -54,8 +54,8 @@ const devices=[{
 	},
 	{
 		url: './assets/models/doors/doors.gltf',
-		name: 'door05',
-		id: 'door05',
+		name: 'door4',
+		id: 'door4',
 		userData: {
 			type: 'door',
 		},

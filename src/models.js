@@ -8,7 +8,7 @@ function createModel(item){
 }
 function getItemID(name){
     const id=0;
-    fetch(`http://124.221.115.182/api/hardware.php?name=${name}`)
+    fetch(`https://124.221.115.182:443/api/hardware.php?name=${name}`)
         .then(res => res.json())
         .then(data => {
             id=data.id;
