@@ -10,6 +10,7 @@ const app = new THING.App({
         createMarkers();
         enterLevel();
         backToDefaultView();
+        pollAllDevices();
 	},
 });
 

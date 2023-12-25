@@ -326,7 +326,7 @@ function pollAllDevices() {
 	}, 1000 / 35); // 每隔约142毫秒更新一个设备的状态
 }
 // 调用函数以启动轮询
-pollAllDevices(); 
+// pollAllDevices(); 
 
 let panelMap=[];
 function changeSwitch(dom, bol) {
