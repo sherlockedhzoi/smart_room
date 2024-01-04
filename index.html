@@ -8,12 +8,15 @@
     <title>智慧校园</title>
     <link rel="stylesheet" href="./css/index.css" />
     <script src="./src/thingjs/thing.js"></script>
-    <script src="./src/thingjs/echarts.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
 </head>
 
 <body>
     <div id="div3d"></div>
-    <button id="echart" style="position: absolute; top: 0; left: 0">设备统计</button>
+    <div style="position: absolute;top: 0;left: 0;display: flex;flex-direction: column;">
+        <button id="echart">传感器信息显示</button>
+        <button id="update">传感器信息更新</button>
+    </div>
     <div id="echartbox" style="position: absolute; top: 0; right: 0; width: 600px; height: 400px;"></div>
 
 </body>
@@ -27,10 +30,10 @@
 <script src="./src/alarm.js"></script>
 <script src="./src/camera.js"></script>
 <script src="./src/echart.js"></script>
+<script src="./src/panels.js"></script>
 <script src="./src/events.js"></script>
 <script src="./src/models.js"></script>
 <script src="./src/markers.js"></script>
-<script src="./src/panels.js"></script>
 <script src="./src/people.js"></script>
 
 
