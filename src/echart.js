@@ -1,113 +1,69 @@
-let flag = 0;
-document.getElementById("echart").addEventListener('click', function () {
-	if (flag === 0) {
-		showEchart()
-		flag = 1;
-	} else {
-		showEchart()
-		var chartContainer = document.getElementById('echartbox');
-		if (chartContainer.style.display === 'none') {
-			chartContainer.style.display = 'block';
-		} else {
-			chartContainer.style.display = 'none';
-		}
-	}
-})
+// import * as echarts from './thingjs/echarts.min.js'
+document.getElementById("echart").addEventListener("click", function () {
+    var chartContainer = document.getElementById("echartbox");
+    if (chartContainer.style.display === "none") {
+        chartContainer.style.display = "block";
+        chartContainer.classList.add('active-echart');
+    } else {
+        chartContainer.style.display = "none";
+        chartContainer.classList.remove('active-echart');
+    }
+});
+document.getElementById("update").addEventListener("click", showEchart)
+
+let echartOptions = {
+    tooltip: {
+        trigger: "axis",
+        axisPointer: {
+            type: "shadow",
+        },
+    },
+    legend: {
+        data: ["室内", "室外"],
+    },
+    xAxis: {
+        type: "category",
+        data: ["温度", "湿度", "CO2", "PM2.5"],
+    },
+    yAxis: {
+        type: "value",
+    },
+    series: [
+        {
+            name: "室内",
+            type: "bar",
+            data: [],
+        },
+        {
+            name: "室外",
+            type: "bar",
+            data: [],
+        },
+    ],
+};
 function showEchart() {
-	let bottomCharts = window.echarts.init(document.querySelector('#echartbox'))
-	//配置图表的属性 图表的各项属性 options 代表的含义可以在 Echarts 官网中查询
-	let echartOptions = {
-		title: {
-			text: '设备分布',
-			subtext: '数据',
-			left: 'center'
-		},
-		tooltip: {
-			trigger: 'item'
-		},
-		legend: {
-			orient: 'vertical',
-			left: 'left'
-		},
-		series: [
-			{
-				name: 'Access From',
-				type: 'pie',
-				radius: '50%',
-				data: [],
-				emphasis: {
-					itemStyle: {
-						shadowBlur: 10,
-						shadowOffsetX: 0,
-						shadowColor: 'rgba(0, 0, 0, 0.5)'
-					}
-				}
-			}
-		]
-	};
-	const obj = {}
-	people.forEach((item) => {
-		if (!obj[item.userData.type]) {
-			obj[item.userData.type] = []
-		}
-		obj[item.userData.type].push(item)
-
-	});
-	app.query(/door/).forEach((item) => {
-		if (item.id !== '') {
-			if (!obj[item.userData.type]) {
-				obj[item.userData.type] = []
-			}
-			console.info(item);
-			obj[item.userData.type].push(item)
-		}
-
-	});
-	app.query(/道闸/).forEach((item) => {
-		if (item.id !== '') {
-			if (!obj[item.userData.type]) {
-				obj[item.userData.type] = []
-			}
-			console.info(item);
-			obj[item.userData.type].push(item)
-		}
-	});
-
-	app.query(/监控/).forEach((item) => {
-		if (item.id !== '') {
-			if (!obj[item.userData.type]) {
-				obj[item.userData.type] = []
-			}
-			console.info(item);
-			obj[item.userData.type].push(item)
-		}
-	});
-	app.query(/门禁/).forEach((item) => {
-		if (item.id !== '') {
-			if (!obj[item.userData.type]) {
-				obj[item.userData.type] = []
-			}
-			console.info(item);
-			obj[item.userData.type].push(item)
-		}
-	});
-	app.query(/照明/).forEach((item) => {
-		if (item.id !== '') {
-			if (!obj[item.userData.type]) {
-				obj[item.userData.type] = []
-			}
-			console.info(item);
-			obj[item.userData.type].push(item)
-		}
-	});
-	// const _data = []
-	Object.keys(obj).forEach(item => {
-		echartOptions.series[0].data.push({
-			name: item,
-			value: obj[item].length
-		})
-	})
-	//调用setOptions 方法将配置好的 options 传入图表
-	bottomCharts.setOption(echartOptions);
-
+    if(flag>0) return;
+    flag=6;
+    for (var i = 0; i < 2; i++) {
+        const nownum=i;
+        echartOptions.series[nownum].data = [0,0,0,0];
+        for (var j = 0; j < 4; j++) {
+            const prefix = prefixs[j],nowj=j;
+            fetch(hardware_url + `?name=${prefix}${nownum}`)
+                .then((res) => res.json())
+                .then((data) => {
+                    echartOptions.series[nownum].data[nowj]=Number(data.data);
+                    flag--;
+                });
+        }
+    }
+}
+const prefixs = ["temperature", "humidity", "CO2", "PM25"];
+let flag = 0;
+const initEcharts = () => {
+    console.log(prefixs);
+    setInterval(() => {
+        let bottomCharts = echarts.init(document.getElementById("echartbox"));
+        bottomCharts.setOption(echartOptions);
+    }, interval);
 }

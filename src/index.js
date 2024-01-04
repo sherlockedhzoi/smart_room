@@ -3,14 +3,15 @@ let campus=null;
 const app = new THING.App({
 	url: './assets/campus/campus.gltf',
 	complete: (e) => {
-        console.log(e);
+        // console.log(e);
         campus=e.campus;
-        app.on('click', (e) => console.info(e.pickedPosition))
+        // app.on('click', (e) => console.info(e.pickedPosition));
         createModels();
         createMarkers();
-        enterLevel();
+        initGlobalEvents();
+        initEcharts();
         backToDefaultView();
-        pollAllDevices();
+        // pollAllDevices();
 	},
 });
 

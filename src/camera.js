@@ -18,111 +18,112 @@ const peopleView = {
 	position: [1.89794317664251, 98.41186088447536, -252.43792246164415],
 };
 
-function cameraFly(object) {
+function cameraFly(obj, callback) {
 	// 1. 设置目标对象的默认视角
-	const objectDefaultView = object?.userData?.defaultView;
-	const param = objectDefaultView || { target: object };
+	const objDefaultView = obj?.userData?.defaultView;
+	const param = objDefaultView || { target: obj };
 	// 2. 摄像机飞行
 	app.camera.flyTo({
 		...param,
 		time: 1500,
 		distance: 30,
-		complete: () => {
-			destroyPanels()
-			_cancelProbe() // camera.js的方法
-			if(object.userData.type === '课程表') {
-				createClassTable(object, courseData);
-			}
-			 else
-			{
-				if (object.userData.type === '监控摄像头') {
-					_createProbe(object) // camera.js的方法
-				} else {
-					createPanel(object);
-				}
-			}
-		},
+		complete: () => callback && callback(),
 	});
 }
 // 回到当前层级默认视角
 function backToDefaultView() {
-    console.log(app);
+    // console.log('back to default view');
 	const currentLevel = app.levelManager.current?app.levelManager.current:campus;
-    switch (currentLevel.type) {
-        case 'Campus': app.camera.flyTo(campusView);break;
-        case 'Building': app.camera.flyTo(buildView);break;
-        case 'Floor': app.camera.flyTo(floorView);break;
-        default: console.warn(`Error: currentLevel ${currentLevel.type} default view not defined`);
+		switch (currentLevel.type) {
+            case 'Campus': app.camera.flyTo(campusView);break;
+            case 'Building': app.camera.flyTo(buildView);break;
+            case 'Floor': app.camera.flyTo(floorView);break;
+            case 'Room': app.camera.flyTo({target: currentLevel,});break;
+            default: console.warn(`Error: currentLevel ${currentLevel.type} default view not defined`);
+		}
+}
+let curObj = null;
+function reverseDeviceLocated(obj){
+	obj.userData.isLocated = !obj.userData.isLocated;
+    updateDeviceMarker(obj);
+}
+function locate(obj) {
+	obj = obj.type === 'Marker' ? obj.parent : obj;
+    const located=obj.userData.located;
+    if(!located){
+        if (curObj?.userData ) reverseDeviceLocated(curObj);
+        reverseDeviceLocated(obj);
+        curObj = obj;
+
+        const currentLevel = app.levelManager.current;
+        const objectParent = obj.parent;
+        if (currentLevel.uuid !== objectParent.uuid) app.levelManager.change(objectParent);
+        cameraFly(obj);
+    }
+    if(obj.userData.type === 'classroomTable') createClassTable(obj);
+    else {
+        if (obj.userData.type === 'camera' && obj.userData.state && !userCamera) _createProbe(obj);
+        createPanel(obj);
     }
 }
 
-let userCamera
+let userCamera=null;
 
 function _createProbe(obj) {
-  let viewProbe = new THING.EXTEND.ViewProbe({
-    id: 'ballViewProbe',
-    innerScanning: false,
-    coneScanning: true,
-    scanningNum: [10, 20], // 后期可以自适应精度,
-    innerPlaneColor: '#00FF9B', // 设置 plane 颜色
-    innerPlaneOpacity: 0.5, // 设置 plane 透明度
-    parent: obj,
-    pickable: true,
-  });
-  viewProbe.fov = 10 //视锥 vfov
-  viewProbe.far = 15 //视锥长度
-  //viewProbe.near = 10
-  viewProbe.rotateX(0) // 视锥角度
-  viewProbe.aspect = 3;// hov/vfov
+	let viewProbe = new THING.EXTEND.ViewProbe({
+		id: 'ballViewProbe',
+		innerScanning: false,
+		coneScanning: true,
+		scanningNum: [10, 20], // 后期可以自适应精度,
+		innerPlaneColor: '#00FF9B', // 设置 plane 颜色
+		innerPlaneOpacity: 0.5, // 设置 plane 透明度
+		parent: obj,
+		pickable: true,
+	});
+	viewProbe.fov = 10 //视锥 vfov
+	viewProbe.far = 15 //视锥长度
+	//viewProbe.near = 10
+	viewProbe.rotateX(0) // 视锥角度
+	viewProbe.aspect = 3;// hov/vfov
 
-  //viewProbe.start(app.query('.Floor'), true, false, false);
+	//viewProbe.start(app.query('.Floor'), true, false, false);
 
-  viewProbe.localPosition = [0, 0, -2.5]; //视锥起始点
+	viewProbe.localPosition = [0, 0, -2.5]; //视锥起始点
 
-  this._createCamera();
-}
+	if (userCamera) {
+		userCamera.destroy();
+		userCamera = null;
+	}
+	const camera = new THING.Camera();
+	userCamera = camera;
+	// const camera = new THING.Camera();
+	camera.enableViewport = true;
+	camera.control.enable = false;
 
-function _createCamera() {
-  if (userCamera) {
-    userCamera.destroy();
-    userCamera = null;
-  }
-  const camera = new THING.Camera();
-  userCamera = camera;
-  // const camera = new THING.Camera();
-  camera.enableViewport = true;
-  camera.control.enable = false;
+	camera.viewport = [500, 50, 800, 200]; // [面板位置，面板位置，视角宽，视角高]
 
+	// camera.background = THING.Math.randomFromArray([image, image2]);
+	camera.projectionType = THING.ProjectionType.Perspective;
 
-  camera.viewport = [500, 50, 800, 200]; // [面板位置，面板位置，视角宽，视角高]
+	camera.postEffect.FXAA.enable = true;
+	camera.postEffect.MSAA.enable = true;
+	camera.position = app.query('#ballViewProbe')[0].position;
+	camera.control.enable = false;
 
-  // camera.background = THING.Math.randomFromArray([image, image2]);
-  camera.projectionType = THING.ProjectionType.Perspective;
-
-  camera.postEffect.FXAA.enable = true;
-  camera.postEffect.MSAA.enable = true;
-  camera.position = app.query('#ballViewProbe')[0].position;
-  camera.control.enable = false;
-
-  this._changeCamera(camera);
-}
-
-function _changeCamera(userCamera) {
-  const camera = userCamera
-  if (!camera) {
-    return;
-  }
-  camera.fov = 50;
-  // const [x, y, z] = app.query('#ballViewProbe')[0].boundingBox.center;
-  camera.target = [0, 0, 0];
-  // camera.angles = app.query('#ballViewProbe')[0].angles
-  app.query('#ballViewProbe')[0].start(app.query('.Floor'), true, false, false);
+	if (!camera) {
+		return;
+	}
+	camera.fov = 50;
+	const [x, y, z] = app.query('#ballViewProbe')[0].boundingBox.center;
+	camera.target = [x,y,z];
+	// camera.angles = app.query('#ballViewProbe')[0].angles
+	app.query('#ballViewProbe')[0].start(app.query('.Floor'), true, false, false);
 }
 
 function _cancelProbe() {
-  if (userCamera) {
-    app.query('#ballViewProbe')[0].destroy()
-    userCamera.destroy();
-    userCamera = null;
-  }
+	if (userCamera) {
+		app.query('#ballViewProbe')[0].destroy()
+		userCamera.destroy();
+		userCamera = null;
+	}
 }

@@ -75,7 +75,7 @@ function createRoomMarker(room, callback) {
     };
     Dom.querySelector('.operate')?.addEventListener('click', (e) => {
         e.stopPropagation();
-        changeRoomDevicesStates(Dom, room);
+        switchRoomDevicesStates(Dom, room);
     });
 }
 function createRoomMarkers() { // NEED TEST
@@ -90,21 +90,24 @@ function createRoomMarkers() { // NEED TEST
                 prevRoomCssDom.classList.remove('room-marker-active');
             }
             curRoomCssDom.classList.add('room-marker-active');
-            app.camera.flyTo({ target: room });
+            // app.camera.flyTo({ target: room });
         });
     });
 }
 
 // Unmovable Object Markers
 const markerUrls = {
-    监控摄像头: './images/mar_camera.png',
-    空调: './images/mar_condition.png',
-    照明: './images/mar_electric.png',
-    门禁: './images/mar_entrance.png',
-    道闸: './images/mar_sensor.png',
-    告警: './images/mar_alarm.png',
-    定位: './images/mar_locate.png',
-    建筑: './images/icon.png',
+    'barrier': './images/mar_sensor.png',
+    'camera': './images/mar_camera.png',
+    'cooler': './images/mar_condition.png',
+    'curtain': './images/mar_sensor.png',
+    'light': './images/mar_light.png',
+    'lock': './images/mar_entrance.png',
+    'alert': './images/mar_alarm.png',
+    'locate': './images/mar_locate.png',
+    'build': './images/icon.png',
+    'accessControl': './images/mar_ups.png',
+    'classroomTable': './images/mar_electric.png',
 };
 // function createDeviceMarkers() {
 // 	// 1. 收集设备对象，依次创建Marker
@@ -133,7 +136,7 @@ function createDeviceMarker(device) {
 		style: {image},
 		complete: (ev) => {
 			const { object } = ev;
-			// bindSingleClick(object, 'markerBindSingleClick'); // TODO BindSingleClick
+			addClickEvent(object, 'markerBindSingleClick'); // TODO BindSingleClick
 		},
 	});
 }
@@ -172,12 +175,12 @@ function createMarkers(){
 // marker change
 function updateDeviceMarker(obj){
     const {isLocated, alarmState, type}=obj.userData;
-    const markerType=isLocated?'定位':(alarmState=='告警'?'告警':type);
-    const marker = object.query(/_marker/)[0];
+    const markerType=isLocated?'locate':(alarmState=='告警'?'alert':type);
+    const marker = obj.query(/_marker/)[0];
     if (!marker){
-        console.log('Warning: want to change marker but marker not found.');
+        console.warn(`Warning: want to change ${obj.name}_marker but marker not found.`);
         return;
     }
-    const image = new THING.ImageTexture(markerUrls[urlName]);
+    const image = new THING.ImageTexture(markerUrls[markerType]);
     marker.style.image = image;
 }

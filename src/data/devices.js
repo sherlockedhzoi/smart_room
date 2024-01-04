@@ -5,7 +5,6 @@ const devices=[{
 		userData: {
 			type: 'door',
 		},
-
 		parent: 'room01',
 		position: [-19.673109127725272, 18.745729446411133, -82.35036783621433],
 		complete: (e) => {
@@ -66,7 +65,7 @@ const devices=[{
 		},
 	},
 
-	//	 道闸01
+	//	 barrier01
 	{
 		url: './assets/models/barrier/barrier.gltf',
 		name: 'barrier0',
@@ -75,7 +74,7 @@ const devices=[{
 		scale: [2.5, 2.5, 2.5],
 		parent: '.Campus',
 		userData: {
-			type: '道闸',
+			type: 'barrier',
 			state: false,
 			alarmDesc: '无',
 			alarmState: '无',
@@ -86,7 +85,7 @@ const devices=[{
 			},
 		},
 	},
-	//	 道闸02
+	//	 barrier02
 	{
 		url: './assets/models/barrier/barrier.gltf',
 		name: 'barrier1',
@@ -95,7 +94,7 @@ const devices=[{
 		scale: [2.5, 2.5, 2.5],
 		parent: '.Campus',
 		userData: {
-			type: '道闸',
+			type: 'barrier',
 			state: false,
 			alarmDesc: '无',
 			alarmState: '无',
@@ -107,7 +106,7 @@ const devices=[{
 		},
 	},
 
-	//	 道闸01旁边摄像头
+	//	 barrier01旁边摄像头
 	{
 		url: './assets/models/camera/camera.gltf',
 		name: 'out_camera0',
@@ -115,7 +114,7 @@ const devices=[{
 		position: [150.2, 11.1, 5.9],
 		parent: '.Campus',
 		userData: {
-			type: '监控摄像头',
+			type: 'camera',
 			state: false,
 			alarmDesc: '无',
 			alarmState: '无',
@@ -126,7 +125,7 @@ const devices=[{
 			},
 		},
 	},
-	//	 道闸02旁边摄像头
+	//	 barrier02旁边摄像头
 	{
 		url: './assets/models/camera/camera.gltf',
 		name: 'out_camera1',
@@ -134,7 +133,7 @@ const devices=[{
 		angles: [0, 180, 0],
 		position: [-175.25, 20.517, -170.8],
 		userData: {
-			type: '监控摄像头',
+			type: 'camera',
 			state: false,
 			alarmDesc: '无',
 			alarmState: '无',
@@ -154,7 +153,7 @@ const devices=[{
 		position: [30.6, 15.3, 177],
 		angles: [0, -90, 0],
 		userData: {
-			type: '监控摄像头',
+			type: 'camera',
 			state: false,
 			alarmDesc: '无',
 			alarmState: '无',
@@ -173,7 +172,7 @@ const devices=[{
 		position: [43.775933477172174, 8.948844561458834, -54.73363876342774], 
 		angles: [30, -120, 30],	
 		userData: {
-			type: '监控摄像头',
+			type: 'camera',
 			state: false,
 			alarmDesc: '无',
 			alarmState: '无',
@@ -192,7 +191,7 @@ const devices=[{
 		position: [41.25799708226927, 12.029220436481808, -186.59723663330078],	
 		angles: [30, -120, 20],	 
 		userData: {
-			type: '监控摄像头',
+			type: 'camera',
 			state: false,
 			alarmDesc: '无',
 			alarmState: '无',
@@ -211,7 +210,7 @@ const devices=[{
 		position: [37.845612301304904, 9.033071898265762, 53.88033932999453],	
 		angles: [-30, 60, 0],	 
 		userData: {
-			type: '监控摄像头',
+			type: 'camera',
 			state: false,
 			alarmDesc: '无',
 			alarmState: '无',
@@ -223,7 +222,7 @@ const devices=[{
 		},
 	},
 
-	// 房间门禁
+	// 房间accessControl
 	{
 		name: 'accessControl0',
 		url: './assets/models/entrance/entrance.gltf',
@@ -232,19 +231,19 @@ const devices=[{
 		angles: [-180, 0, -180],
 		scale: [0.5, 0.5, 0.5],
 		userData: {
-			type: '门禁',
+			type: 'accessControl',
 			state: false,
 			alarmDesc: '无',
 			alarmState: '无',
 			isLocated: false,
-			related: 'door1',
+			related: 'door0',
 			defaultView: {
 				target: [-35.19521558997416, 20.459239707146462, -82.60264034777322],
 				position: [-24.942162204062555, 23.89663460189262, -91.47300302594479],
 			},
 		},
 	},
-	//新加门禁
+	//新加accessControl
 	{
 		name: 'accessControl1',
 		url: './assets/models/entrance/entrance.gltf',
@@ -253,12 +252,12 @@ const devices=[{
 		angles: [-180, 0, -180],
 		scale: [0.5, 0.5, 0.5],
 		userData: {
-			type: '门禁',
+			type: 'accessControl',
 			state: false,
 			alarmDesc: '无',
 			alarmState: '无',
 			isLocated: false,
-			related: 'door2',
+			related: 'door1',
 			defaultView: {
 				target: [-41.303522477411505, 20.195227138242917, -82.49228763580322],
 				position: [-40.05610158718806, 18.745728850364685, -90.02513168540845],
@@ -273,12 +272,12 @@ const devices=[{
 		angles: [-180, 0, -180],
 		scale: [0.5, 0.5, 0.5],
 		userData: {
-			type: '门禁',
+			type: 'accessControl',
 			state: false,
 			alarmDesc: '无',
 			alarmState: '无',
 			isLocated: false,
-			related: 'door3',
+			related: 'door2',
 			defaultView: {
 				target: [-12.161365762238477, 20.110936056071655, -100.03991889953613],
 				position: [-11.809563064790556, 18.745728850364685, -96.624359810399],
@@ -293,12 +292,12 @@ const devices=[{
 		angles: [-180, 0, -180],
 		scale: [0.5, 0.5, 0.5],
 		userData: {
-			type: '门禁',
+			type: 'accessControl',
 			state: false,
 			alarmDesc: '无',
 			alarmState: '无',
 			isLocated: false,
-			related: 'door4',
+			related: 'door3',
 			defaultView: {
 				target: [-24.080179197463096, 18.745728850364685, -99.87507127291408],
 				position: [-24.942162204062555, 23.89663460189262, -91.47300302594479],
@@ -308,13 +307,12 @@ const devices=[{
 	//	房间摄像头
 	{
 		name: 'in_camera0',
-		url: './assets/models/camera/camera.gltf',
 		parent: 'room01',
 		position: [-18.984275817871094, 21.32172393798828, -73.65314483642578],
 		angles: [-180, 135, 180],
 		scale: [0.5, 0.5, 0.5],
 		userData: {
-			type: '监控摄像头',
+			type: 'camera',
 			state: false,
 			alarmDesc: '无',
 			alarmState: '无',
@@ -328,13 +326,12 @@ const devices=[{
 	//新加摄像头(更新版)
 	{
 		name: 'in_camera1',
-		url: './assets/models/camera/camera.gltf',
 		parent: 'room01',
 		position: [-8.416519165039062, 21.290697919462126, -90.86001044387096], 
 		angles: [-160, -45, 180],					
 		scale: [0.9, 0.9, 0.9],
 		userData: {
-			type: '监控摄像头',
+			type: 'camera',
 			state: false,
 			alarmDesc: '无',
 			alarmState: '无',
@@ -348,13 +345,12 @@ const devices=[{
 	//新加摄像头
 	{
 		name: 'in_camera2',
-		url: './assets/models/camera/camera.gltf',
 		parent: 'room02',
 		position: [-28.391517877578735, 21.342995738717512, -108.48742045116228], 
 		angles: [-160, -45, 180],					
 		scale: [0.8, 0.8, 0.8],
 		userData: {
-			type: '监控摄像头',
+			type: 'camera',
 			state: false,
 			alarmDesc: '无',
 			alarmState: '无',
@@ -365,15 +361,14 @@ const devices=[{
 			},
 		},
 	},
-	// 房间空调1
+	// 房间cooler1
 	{
-		url: './assets/models/conditioner/空调.gltf',
 		name: 'cooler0',
 		position: [-29.32614050166989, 20.65, -77.89239014790601],
 		scale: [2, 2, 2],
 		parent: 'room01',
 		userData: {
-			type: '空调',
+			type: 'cooler',
 			state: false,
 			alarmDesc: '无',
 			alarmState: '无',
@@ -387,15 +382,14 @@ const devices=[{
 			e.object.playAnimation('关');
 		},
 	},
-	//新加空调
+	//新加cooler
 	{
-		url: './assets/models/conditioner/空调.gltf',
 		name: 'cooler1',
 		position: [-43.32614050166989, 20.65, -77.89239014790601],
 		scale: [2, 2, 2],
 		parent: 'room01',
 		userData: {
-			type: '空调',
+			type: 'cooler',
 			state: false,
 			alarmDesc: '无',
 			alarmState: '无',
@@ -410,13 +404,12 @@ const devices=[{
 		},
 	},
 	{
-		url: './assets/models/conditioner/空调.gltf',
 		name: 'cooler2',
 		position: [-17.690370810979914, 21.65, -105.13528633117676],
 		scale: [2, 2, 2],
 		parent: 'room02',
 		userData: {
-			type: '空调',
+			type: 'cooler',
 			state: false,
 			alarmDesc: '无',
 			alarmState: '无',
@@ -430,15 +423,14 @@ const devices=[{
 			e.object.playAnimation('关');
 		},
 	},
-	// 房间照明01
+	// 房间light01
 	{
-		url: './assets/models/light/light.gltf',
 		name: 'light0',
 		parent: 'room01',
 		position: [-36, 21.65, -78],
 		angles: [0, 90, 0],
 		userData: {
-			type: '照明',
+			type: 'light',
 			state: false,
 			alarmDesc: '无',
 			alarmState: '无',
@@ -450,13 +442,12 @@ const devices=[{
 		},
 	},
 	{
-		url: './assets/models/light/light.gltf',
 		name: 'light1',
 		parent: 'room01',
 		position: [-21, 21.65, -78],
 		angles: [0, 90, 0],
 		userData: {
-			type: '照明',
+			type: 'light',
 			state: false,
 			alarmDesc: '无',
 			alarmState: '无',
@@ -467,15 +458,14 @@ const devices=[{
 			},
 		},
 	},
-	//房间照明新加
+	//房间light新加
 	{
-		url: './assets/models/light/light.gltf',
 		name: 'light2',
 		parent: 'room01',
 		position: [-41, 21.65, -78],
 		angles: [0, 90, 0],
 		userData: {
-			type: '照明',
+			type: 'light',
 			state: false,
 			alarmDesc: '无',
 			alarmState: '无',
@@ -487,13 +477,12 @@ const devices=[{
 		},
 	},
 	{
-		url: './assets/models/light/light.gltf',
 		name: 'light3',
 		parent: 'room01',
 		position: [-46, 21.65, -78],
 		angles: [0, 90, 0],
 		userData: {
-			type: '照明',
+			type: 'light',
 			state: false,
 			alarmDesc: '无',
 			alarmState: '无',
@@ -505,13 +494,12 @@ const devices=[{
 		},
 	},
 	{
-		url: './assets/models/light/light.gltf',
 		name: 'light4',
 		parent: 'room02',
 		position: [-9.509916088623527, 21.65, -105.82571336571655],
 		angles: [0, 90, 0],
 		userData: {
-			type: '照明',
+			type: 'light',
 			state: false,
 			alarmDesc: '无',
 			alarmState: '无',
@@ -523,13 +511,12 @@ const devices=[{
 		},
 	},
 	{
-		url: './assets/models/light/light.gltf',
 		name: 'light5',
 		parent: 'room02',
 		position: [-23.23385144354801, 21.65, -105.82571336571655],
 		angles: [0, 90, 0],
 		userData: {
-			type: '照明',
+			type: 'light',
 			state: false,
 			alarmDesc: '无',
 			alarmState: '无',
@@ -541,14 +528,13 @@ const devices=[{
 		},
 	},
 	{
-		url: './assets/models/smartboard/model_screen_003.gltf',
-		name: '课程表',
-		id: '课程表',
+		name: 'classroomTable',
+		id: '0',
 		parent: 'room02',
 		position: [-17.866739769525438, 18.91302056468737, -98.84728700566767],
 		angles: [0, 0, 0],
 		userData: {
-			type: '课程表',
+			type: 'classroomTable',
 			state: false,
 			alarmDesc: '无',
 			alarmState: '无',
@@ -560,13 +546,12 @@ const devices=[{
 		},
 	},
 	{
-		url: './assets/models/chuanglian/窗帘.gltf',
 		name: 'curtain0',
 		parent: 'room02',
 		position: [-18.381179030719785, 19.75537155427584, -109.25677299499512],
 		angles: [0, 0, 0],
 		userData: {
-			type: 'chuanglian',
+			type: 'curtain',
 			state: false,
 			alarmDesc: '无',
 			alarmState: '无',
@@ -578,7 +563,6 @@ const devices=[{
 		},
 	},
 	{
-		url: './assets/models/fengshan/风扇.gltf',
 		name: 'fan0',
 		parent: 'room02',
 		position: [-20.391517877578735, 22.25200957134852, -104.87882636166296],
